@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\WeatheControllerAPI;
+use App\Http\Controllers\API\WeatherPostController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post( 'login',[WeatheControllerAPI::class,'login']);
 Route::post( 'register',[WeatheControllerAPI::class,'register']);
 Route::post( 'reset-password',[WeatheControllerAPI::class,'resetPassword']);
+
+Route::get('get-all-posts',[WeatherPostController::class,'getAllPosts']);
+Route::get('get-post',[WeatherPostController::class,'getPost']);
+Route::get('search-post',[WeatherPostController::class,'searchPost']);
